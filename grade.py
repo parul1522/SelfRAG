@@ -14,13 +14,14 @@ from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.graph import StateGraph,START,END
 from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 
 load_dotenv()
 GROQ_API_KEY =os.getenv("GROQ_API_KEY")
 
 llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
-embeddings = OllamaEmbeddings(model="nomic-embed-text")
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 def process_document(file_path):
     if os.path.isfile(file_path):
