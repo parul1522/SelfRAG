@@ -13,5 +13,6 @@ faiss-cpu
 numpy
 tiktoken
 pypdf
+torchvision
 docx2txt
 unstructured
